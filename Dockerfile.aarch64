@@ -20,7 +20,7 @@ RUN \
     nano \
     net-tools \
     sudo && \
-  echo "**** install openvscode-server ****" && \
+  echo "**** install vscodium-web ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -s https://api.github.com/repos/VSCodium/vscodium/releases/latest \
       | jq -r '. | .tag_name'); \
