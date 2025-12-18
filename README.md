@@ -56,7 +56,7 @@ The architectures supported by this image are:
 
 ## Application Setup
 
->[!WARNING]
+>[!NOTE]
 >This image sets up the `remote host web` component of VSCodium, which is only accessible in a web browser. If you are looking for the full desktop client of VSCodium, served over Selkies, see here: https://github.com/linuxserver/docker-vscodium
 
 If `CONNECTION_TOKEN` or `CONNECTION_TOKEN_FILE` env vars are set, you can access the webui at `http://<your-ip>:8000/?tkn=supersecrettoken` (replace `supersecrettoken` with the value set). If not, you can access the webui at `http://<your-ip>:8000`.
