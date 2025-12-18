@@ -1,0 +1,47 @@
+FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-noble
+
+# set version label
+ARG BUILD_DATE
+ARG VERSION
+ARG CODE_RELEASE
+LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="aptalca"
+
+# environment settings
+ARG DEBIAN_FRONTEND="noninteractive"
+ENV HOME="/config"
+
+RUN \
+  echo "**** install runtime dependencies ****" && \
+  apt-get update && \
+  apt-get install -y \
+    git \
+    libatomic1 \
+    nano \
+    net-tools \
+    sudo && \
+  echo "**** install openvscode-server ****" && \
+  if [ -z ${CODE_RELEASE+x} ]; then \
+    CODE_RELEASE=$(curl -s https://api.github.com/repos/VSCodium/vscodium/releases/latest \
+      | jq -r '. | .tag_name'); \
+  fi && \
+  mkdir -p /app/vscodium-web && \
+  curl -o \
+    /tmp/vscodium-web.tar.gz -L \
+    "https://github.com/VSCodium/vscodium/releases/download/${CODE_RELEASE}/vscodium-reh-web-linux-arm64-${CODE_RELEASE}.tar.gz" && \
+  tar xf \
+    /tmp/vscodium-web.tar.gz -C \
+    /app/vscodium-web/ --strip-components=1 && \
+  printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
+  echo "**** clean up ****" && \
+  apt-get clean && \
+  rm -rf \
+    /tmp/* \
+    /var/lib/apt/lists/* \
+    /var/tmp/*
+
+# add local files
+COPY /root /
+
+# ports and volumes
+EXPOSE 8000
