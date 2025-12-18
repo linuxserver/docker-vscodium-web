@@ -1,7 +1,7 @@
 ---
 
 # project information
-project_name: ovscodium-web
+project_name: vscodium-web
 project_url: "https://vscodium.com/"
 project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png"
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code."

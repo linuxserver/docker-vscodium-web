@@ -593,16 +593,16 @@ pipeline {
         sh "docker buildx build \
           --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
           --label \"org.opencontainers.image.authors=linuxserver.io\" \
-          --label \"org.opencontainers.image.url=https://github.com/linuxserver/docker-ovscodium-web/packages\" \
-          --label \"org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-ovscodium-web\" \
-          --label \"org.opencontainers.image.source=https://github.com/linuxserver/docker-ovscodium-web\" \
+          --label \"org.opencontainers.image.url=https://github.com/linuxserver/docker-vscodium-web/packages\" \
+          --label \"org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-vscodium-web\" \
+          --label \"org.opencontainers.image.source=https://github.com/linuxserver/docker-vscodium-web\" \
           --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ls${LS_TAG_NUMBER}\" \
           --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
           --label \"org.opencontainers.image.vendor=linuxserver.io\" \
           --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
           --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
-          --label \"org.opencontainers.image.title=Ovscodium-web\" \
-          --label \"org.opencontainers.image.description=[Ovscodium-web](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.\" \
+          --label \"org.opencontainers.image.title=Vscodium-web\" \
+          --label \"org.opencontainers.image.description=[Vscodium-web](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.\" \
           --no-cache --pull -t ${IMAGE}:${META_TAG} --platform=linux/amd64 \
           --provenance=true --sbom=true --builder=container --load \
           --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
@@ -662,16 +662,16 @@ pipeline {
             sh "docker buildx build \
               --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
               --label \"org.opencontainers.image.authors=linuxserver.io\" \
-              --label \"org.opencontainers.image.url=https://github.com/linuxserver/docker-ovscodium-web/packages\" \
-              --label \"org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-ovscodium-web\" \
-              --label \"org.opencontainers.image.source=https://github.com/linuxserver/docker-ovscodium-web\" \
+              --label \"org.opencontainers.image.url=https://github.com/linuxserver/docker-vscodium-web/packages\" \
+              --label \"org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-vscodium-web\" \
+              --label \"org.opencontainers.image.source=https://github.com/linuxserver/docker-vscodium-web\" \
               --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ls${LS_TAG_NUMBER}\" \
               --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
               --label \"org.opencontainers.image.vendor=linuxserver.io\" \
               --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
               --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
-              --label \"org.opencontainers.image.title=Ovscodium-web\" \
-              --label \"org.opencontainers.image.description=[Ovscodium-web](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.\" \
+              --label \"org.opencontainers.image.title=Vscodium-web\" \
+              --label \"org.opencontainers.image.description=[Vscodium-web](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.\" \
               --no-cache --pull -t ${IMAGE}:amd64-${META_TAG} --platform=linux/amd64 \
               --provenance=true --sbom=true --builder=container --load \
               --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."
@@ -724,16 +724,16 @@ pipeline {
             sh "docker buildx build \
               --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
               --label \"org.opencontainers.image.authors=linuxserver.io\" \
-              --label \"org.opencontainers.image.url=https://github.com/linuxserver/docker-ovscodium-web/packages\" \
-              --label \"org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-ovscodium-web\" \
-              --label \"org.opencontainers.image.source=https://github.com/linuxserver/docker-ovscodium-web\" \
+              --label \"org.opencontainers.image.url=https://github.com/linuxserver/docker-vscodium-web/packages\" \
+              --label \"org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-vscodium-web\" \
+              --label \"org.opencontainers.image.source=https://github.com/linuxserver/docker-vscodium-web\" \
               --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ls${LS_TAG_NUMBER}\" \
               --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
               --label \"org.opencontainers.image.vendor=linuxserver.io\" \
               --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
               --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
-              --label \"org.opencontainers.image.title=Ovscodium-web\" \
-              --label \"org.opencontainers.image.description=[Ovscodium-web](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.\" \
+              --label \"org.opencontainers.image.title=Vscodium-web\" \
+              --label \"org.opencontainers.image.description=[Vscodium-web](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.\" \
               --no-cache --pull -f Dockerfile.aarch64 -t ${IMAGE}:arm64v8-${META_TAG} --platform=linux/arm64 \
               --provenance=true --sbom=true --builder=container --load \
               --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."

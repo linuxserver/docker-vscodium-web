@@ -1,4 +1,4 @@
-# Contributing to ovscodium-web
+# Contributing to vscodium-web
 
 ## Gotchas
 
@@ -24,10 +24,10 @@
 ## Readme
 
 If you would like to change our readme, please __**do not**__ directly edit the readme, as it is auto-generated on each commit.
-Instead edit the [readme-vars.yml](https://github.com/linuxserver/docker-ovscodium-web/edit/main/readme-vars.yml).
+Instead edit the [readme-vars.yml](https://github.com/linuxserver/docker-vscodium-web/edit/main/readme-vars.yml).
 
 These variables are used in a template for our [Jenkins Builder](https://github.com/linuxserver/docker-jenkins-builder) as part of an ansible play.
-Most of these variables are also carried over to [docs.linuxserver.io](https://docs.linuxserver.io/images/docker-ovscodium-web)
+Most of these variables are also carried over to [docs.linuxserver.io](https://docs.linuxserver.io/images/docker-vscodium-web)
 
 ### Fixing typos or clarify the text in the readme
 
@@ -97,12 +97,12 @@ If you are proposing additional packages to be added, ensure that you added the 
 ### Testing your changes
 
 ```bash
-git clone https://github.com/linuxserver/docker-ovscodium-web.git
-cd docker-ovscodium-web
+git clone https://github.com/linuxserver/docker-vscodium-web.git
+cd docker-vscodium-web
 docker build \
   --no-cache \
   --pull \
-  -t linuxserver/ovscodium-web:latest .
+  -t linuxserver/vscodium-web:latest .
 ```
 
 The ARM variants can be built on x86_64 hardware and vice versa using `lscr.io/linuxserver/qemu-static`
@@ -115,7 +115,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Update the changelog
 
-If you are modifying the Dockerfiles or any of the startup scripts in [root](https://github.com/linuxserver/docker-ovscodium-web/tree/main/root), add an entry to the changelog
+If you are modifying the Dockerfiles or any of the startup scripts in [root](https://github.com/linuxserver/docker-vscodium-web/tree/main/root), add an entry to the changelog
 
 ```yml
 changelogs:
