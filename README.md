@@ -94,6 +94,7 @@ services:
       - CONNECTION_TOKEN_FILE= #optional
       - SUDO_PASSWORD=password #optional
       - SUDO_PASSWORD_HASH= #optional
+      - CODE_ARGS= #optional
     volumes:
       - /path/to/vscodium-web/config:/config
     ports:
@@ -113,6 +114,7 @@ docker run -d \
   -e CONNECTION_TOKEN_FILE= `#optional` \
   -e SUDO_PASSWORD=password `#optional` \
   -e SUDO_PASSWORD_HASH= `#optional` \
+  -e CODE_ARGS= `#optional` \
   -p 8000:8000 \
   -v /path/to/vscodium-web/config:/config \
   --restart unless-stopped \
@@ -133,6 +135,7 @@ Containers are configured using parameters passed at runtime (such as those abov
 | `-e CONNECTION_TOKEN_FILE=` | Optional path to a file inside the container that contains the security token for accessing the Web UI (ie. `/path/to/file`). Overrides `CONNECTION_TOKEN`. |
 | `-e SUDO_PASSWORD=password` | If this optional variable is set, user will have sudo access in the vscodium-web terminal with the specified password. |
 | `-e SUDO_PASSWORD_HASH=` | Optionally set sudo password via hash (takes priority over `SUDO_PASSWORD` var). Format is `$type$salt$hashed`. |
+| `-e CODE_ARGS=` | Optionally add cli parameters to vscodium binary. |
 | `-v /config` | Contains all relevant configuration files. |
 
 ## Environment variables from files (Docker secrets)
