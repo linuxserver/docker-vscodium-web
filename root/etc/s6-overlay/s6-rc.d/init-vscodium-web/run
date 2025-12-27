@@ -1,0 +1,39 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+mkdir -p /config/{workspace,.ssh}
+
+if [[ -n "${SUDO_PASSWORD}" ]] || [[ -n "${SUDO_PASSWORD_HASH}" ]]; then
+    echo "setting up sudo access"
+    if ! grep -q 'abc' /etc/sudoers; then
+        echo "adding abc to sudoers"
+        echo "abc ALL=(ALL:ALL) ALL" >> /etc/sudoers
+    fi
+    if [[ -n "${SUDO_PASSWORD_HASH}" ]]; then
+        echo "setting sudo password using sudo password hash"
+        sed -i "s|^abc:\!:|abc:${SUDO_PASSWORD_HASH}:|" /etc/shadow
+    else
+        echo "setting sudo password using SUDO_PASSWORD env var"
+        echo -e "${SUDO_PASSWORD}\n${SUDO_PASSWORD}" | passwd abc
+    fi
+fi
+
+if [[ ! -f /config/.bashrc ]]; then \
+    cp /root/.bashrc /config/.bashrc
+fi
+
+if [[ ! -f /config/.profile ]]; then
+    cp /root/.profile /config/.profile
+fi
+
+# fix permissions (ignore contents of /config/workspace)
+echo "setting permissions::config"
+find /config -path /config/workspace -prune -o -exec lsiown abc:abc {} +
+lsiown abc:abc /config/workspace
+echo "setting permissions::app"
+lsiown -R abc:abc /app/vscodium-web
+
+chmod 700 /config/.ssh
+if [[ -n "$(ls -A /config/.ssh)" ]]; then
+    chmod 600 /config/.ssh/*
+fi
