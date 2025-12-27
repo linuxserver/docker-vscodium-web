@@ -35,7 +35,7 @@ app_setup_block_enabled: true
 app_setup_block: |
   >[!NOTE]
   >This image sets up the `remote host web` component of VSCodium, which is only accessible in a web browser. If you are looking for the full desktop client of VSCodium, served over Selkies, see here: https://github.com/linuxserver/docker-vscodium
-  
+
   If `CONNECTION_TOKEN` or `CONNECTION_TOKEN_FILE` env vars are set, you can access the webui at `http://<your-ip>:8000/?tkn=supersecrettoken` (replace `supersecrettoken` with the value set). If not, you can access the webui at `http://<your-ip>:8000`.
 
   For github integration, drop your ssh key in to `/config/.ssh`.
@@ -47,7 +47,47 @@ app_setup_block: |
   ```
 
   When reverse proxied through SWAG, custom services running on specific ports inside vscodium-web can be accessed at `https://PORT.vscodium-web.domain.com` very much like how code-server's port proxy function is handled. For that, a wildcard CNAME `*.vscodium-web.domain.com` needs to be created and the SWAG cert needs to cover those subdomains. Https access to a port can be initiated by adding an `s` to the end of the PORT in the url (ie. `https://PORTs.vscodium-web.domain.com`)
-
+# init diagram
+init_diagram: |
+  "vscodium-web:latest": {
+    docker-mods
+    base {
+      fix-attr +\nlegacy cont-init
+    }
+    docker-mods -> base
+    legacy-services
+    custom services
+    init-services -> legacy-services
+    init-services -> custom services
+    custom services -> legacy-services
+    legacy-services -> ci-service-check
+    init-migrations -> init-adduser
+    init-os-end -> init-config
+    init-config -> init-config-end
+    init-crontab-config -> init-config-end
+    init-vscodium-web -> init-config-end
+    init-config -> init-crontab-config
+    init-mods-end -> init-custom-files
+    init-adduser -> init-device-perms
+    base -> init-envfile
+    base -> init-migrations
+    init-config-end -> init-mods
+    init-mods-package-install -> init-mods-end
+    init-mods -> init-mods-package-install
+    init-adduser -> init-os-end
+    init-device-perms -> init-os-end
+    init-envfile -> init-os-end
+    init-custom-files -> init-services
+    init-config -> init-vscodium-web
+    init-services -> svc-cron
+    svc-cron -> legacy-services
+    init-services -> svc-vscodium-web
+    svc-vscodium-web -> legacy-services
+  }
+  Base Images: {
+    "baseimage-ubuntu:noble"
+  }
+  "vscodium-web:latest" <- Base Images
 # changelog
 changelogs:
   - {date: "18.12.25:", desc: "Initial Release."}
