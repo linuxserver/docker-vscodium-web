@@ -90,4 +90,5 @@ init_diagram: |
   "vscodium-web:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "28.02.26:", desc: "Add RISCV build."}
   - {date: "18.12.25:", desc: "Initial Release."}
