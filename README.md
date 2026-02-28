@@ -52,6 +52,7 @@ The architectures supported by this image are:
 | Architecture | Available | Tag |
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
+| riscv64 | ✅ | riscv64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
 
 ## Application Setup
@@ -300,4 +301,5 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **28.02.26:** - Add RISCV build.
 * **18.12.25:** - Initial Release.
