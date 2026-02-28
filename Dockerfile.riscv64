@@ -30,7 +30,7 @@ RUN \
   mkdir -p /app/vscodium-web && \
   curl -o \
     /tmp/vscodium-web.tar.gz -L \
-    "https://github.com/VSCodium/vscodium/releases/download/${CODE_RELEASE}/vscodium-reh-web-linux-risvc64-${CODE_RELEASE}.tar.gz" && \
+    "https://github.com/VSCodium/vscodium/releases/download/${CODE_RELEASE}/vscodium-reh-web-linux-riscv64-${CODE_RELEASE}.tar.gz" && \
   tar xf \
     /tmp/vscodium-web.tar.gz -C \
     /app/vscodium-web/ --strip-components=1 && \
