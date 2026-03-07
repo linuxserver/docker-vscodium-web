@@ -28,7 +28,7 @@ NAME                                    VERSION                            TYPE
 @xterm/addon-webgl                      0.20.0-beta.166                    npm       
 @xterm/headless                         6.1.0-beta.167                     npm       
 @xterm/xterm                            6.1.0-beta.167                     npm       
-VSCodium                                1.110.11602                        npm       
+VSCodium                                1.110.11607                        npm       
 adduser                                 3.137ubuntu1                       deb       
 agent-base                              7.1.1                              npm       
 apt                                     2.8.3                              deb       
