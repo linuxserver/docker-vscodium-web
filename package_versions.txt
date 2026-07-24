@@ -238,7 +238,7 @@ libsemanage-common                                3.5-1build5                   
 libsemanage2                                      3.5-1build5                        deb                     
 libsepol2                                         3.5-2build1                        deb                     
 libsmartcols1                                     2.39.3-9ubuntu6.5                  deb                     
-libsqlite3-0                                      3.45.1-1ubuntu2.6                  deb                     
+libsqlite3-0                                      3.45.1-1ubuntu2.7                  deb                     
 libss2                                            1.47.0-2.4~exp1ubuntu4.1           deb                     
 libssh-4                                          0.10.6-2ubuntu0.4                  deb                     
 libssl3t64                                        3.0.13-0ubuntu3.11                 deb                     
@@ -348,7 +348,7 @@ sudo                                              1.9.15p5-3ubuntu5.24.04.2     
 swift                                             10.0.0                             npm                     
 systemd-standalone-sysusers                       255.4-1ubuntu8.16                  deb                     
 sysvinit-utils                                    3.08-6ubuntu3                      deb                     
-tar                                               1.35+dfsg-3ubuntu0.2               deb                     
+tar                                               1.35+dfsg-3ubuntu0.3               deb                     
 tar                                               7.5.13                             npm                     
 tar-fs                                            2.1.4                              npm                     
 tar-stream                                        2.2.0                              npm                     
